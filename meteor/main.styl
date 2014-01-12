@@ -1,0 +1,447 @@
+@import 'nib'
+global-reset()
+
+black = #181818
+
+softGrey = #565655
+
+lightGrey = #e8e8e4
+mediumGrey = #a0a0a0
+darkGrey = #5d5d5d
+
+red = #b41e37
+
+*, *:before, *:after
+    box-sizing: border-box;
+
+input, textarea
+    background: white
+    border: 0
+
+textarea
+    resize: none
+    font-family: inherit
+    font-size: inherit
+
+body
+    background: lightGrey
+    color: black
+    font-family: Helvetica, Arial, sans-serif
+
+::-webkit-input-placeholder
+    color: mediumGrey
+:-moz-placeholder
+    color: mediumGrey
+::-moz-placeholder
+    color: mediumGrey
+:-ms-input-placeholder
+    color: mediumGrey
+
+#canvas
+    padding: 15px 21px
+    margin: 0 auto
+    width: 1190px
+    height: 842px
+
+    ::-webkit-scrollbar
+        width: 8px
+     
+    ::-webkit-scrollbar-track
+        border-radius: 4px
+        background: rgba(0, 0, 0, 0.1)
+
+    ::-webkit-scrollbar-thumb
+        border-radius: 4px
+        background: rgba(0, 0, 0, 0.5)
+    
+    .field
+        display: inline-block
+        vertical-align: top
+        margin: 5px
+
+        label
+            display: block
+
+        input, textarea
+            background: transparent
+
+            &:focus
+                outline:0
+
+    header
+        font-size: 0
+
+        .left
+            display: inline-block
+            width: 553px
+            vertical-align: top
+
+            .field
+                background: white
+                width: 240px
+                height: 42px
+                padding: 0 7px
+
+                label
+                    color: mediumGrey
+                    font-size: 10px
+                    padding: 6px 0 0 1px
+
+                input
+                    font-size: 14px
+                    width: 100%
+
+                &.company
+                    width: 293px
+
+        .right
+            position: relative
+            display: inline-block
+            width: 585px
+            vertical-align: top
+            margin: 5px
+            height: 42px
+
+            .field
+                font-size:0
+                height: 21px
+                margin: 0
+
+                label
+                    display: inline-block
+                    color: softGrey
+                    font-size: 10px
+                    margin-right: 2px
+
+                    &:after
+                        content: ':'
+
+                input
+                    display: inline-block
+                    border-bottom: 1px solid mediumGrey
+                    color: softGrey
+                    font-size: 12px
+
+                &.connection
+                    margin-top: -5px
+                    margin-bottom: 8px
+                    input
+                        width: 150px
+                        margin-right: 10px
+
+                &.accepted
+                    margin-top: -5px
+                    margin-bottom: 8px
+                    input
+                        width: 164px
+
+                &.team input
+                    width: 224px
+                    margin-right: 10px
+
+                &.created input
+                    width: 103px
+
+            .logo
+                absolute: bottom right
+                display: inline-block
+                font-size: 8px
+                text-align: right
+                line-height: 1.25
+                padding-top: 1px
+                padding-right:32px
+                height: 19px
+                image: '/img/logo.png' 23px 19px
+                background-repeat: no-repeat
+                background-position: right
+
+
+    .main
+        .field
+            position: relative
+            background: white
+            height: 65px
+            padding: 10px
+
+            label
+                height: 21px
+                line-height: @height
+                color: black
+                font-size: 12px
+                padding-left: 1px
+                text-transform: uppercase
+                background-repeat: no-repeat
+                margin-bottom: (-1 * @height)
+
+            textarea
+                font-size: 12px
+                width: 100%
+                height: 100%
+                padding-top:21px
+
+            &.has-icon
+                label, input, textarea
+                    padding-left: 26px
+
+            &.focus
+                box-shadow: inset 0 0 0 1px red
+
+        .mid
+            position: relative
+            height: 683px
+
+            .field
+                &:before, &:after, label:before, label:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    border: 10px solid transparent
+                    margin: -10px
+
+            .field.background
+                z-index: 100
+                absolute: left 0 top 0
+                width: 744px
+                height: 170px
+
+                label
+                    image: '/img/icons/background.png'
+
+                &:before, &:after, label:before
+                    border-left-color: white
+                    top: 50%
+                    right: -10px
+                
+                label:before
+                    right: -9px
+
+                &:after
+                    border-left-color: lightGrey
+                    right: -20px
+
+                &.focus
+                    &:before
+                        border-left-color: red
+
+
+            .field.competition
+                z-index: 90
+                absolute: right 0 top 0
+                width: 384px
+                height: 320px
+
+                label
+                    image: '/img/icons/competition.png'
+
+                &:before, &:after, label:before
+                    border-top-color: white
+                    right: 70px
+                    bottom: -10px
+
+                label:before
+                    bottom: -9px
+
+                &:after
+                    border-top-color: lightGrey
+                    bottom: -20px
+
+                &.focus
+                    &:before
+                        border-top-color: red
+
+                    label:after
+                        top: 85px
+                        left: 11px
+                        border-left-color: red
+
+            .field.goals
+                z-index: 80
+                absolute: right 0 bottom 0
+                width: 384px
+                height: 343px
+
+                label
+                    image: '/img/icons/goals.png'
+
+                &:before, &:after, label:before
+                    border-right-color: white
+                    bottom: 120px
+                    left: -10px
+
+                label:before
+                    left -9px
+
+                &:after
+                    border-right-color: lightGrey
+                    left: -20px
+
+                &.focus
+                    &:before
+                        border-right-color: red
+
+                    label:after
+                        right: 70px
+                        top: 11px
+                        border-top-color: red
+
+            .field.promise
+                z-index: 70
+                absolute: right 394px bottom 0
+                width: 266px
+                height: 241px
+
+                label
+                    image: '/img/icons/promise.png'
+
+                &:before, &:after, label:before
+                    border-right-color: white
+                    bottom: 120px
+                    left: -10px
+
+                label:before
+                    left: -9px
+
+                &:after
+                    border-right-color: lightGrey
+                    left: -20px
+
+                &.focus
+                    &:before
+                        border-right-color: red
+
+                    label:after
+                        bottom: 120px
+                        right: 11px
+                        border-right-color: red
+
+            .field.focusgroup
+                z-index: 60
+                absolute: left 0 bottom 0
+                width: 468px
+                height: 302px
+
+                label
+                    image: '/img/icons/focusgroup.png'
+
+                &:before, &:after, label:before
+                    border-bottom-color: white
+                    right: 74px
+                    top: -10px
+
+                label:before
+                    top: -9px
+
+                &:after
+                    border-bottom-color: lightGrey
+                    top: -20px
+
+                &.focus
+                    &:before
+                        border-bottom-color: red
+
+                    label:after
+                        bottom: 120px
+                        right: 11px
+                        border-right-color: red
+
+            .field.insight
+                z-index: 50
+                absolute: left 0 bottom 312px
+                width: 468px
+                height: 181px
+
+                label
+                    image: '/img/icons/insight.png'
+
+                &:before, &:after, label:before
+                    border-left-color: white
+                    top: 44px
+                    right: -10px
+
+                label:before
+                    right: -9px
+
+                &:after
+                    border-left-color: lightGrey
+                    right: -20px
+
+                &.focus
+                    &:before
+                        border-left-color: red
+
+                    label:after
+                        right: 74px
+                        bottom: 11px
+                        border-bottom-color: red
+
+            .field.strategy
+                z-index: 40
+                absolute: right 394px bottom 251px
+                width: 266px
+                height: 242px
+                background: red
+
+                label
+                    image: '/img/icons/strategy.png'
+                    color: white
+
+                &.focus
+                    box-shadow: inset 0 0 0 1px red, inset 0 0 0 2px white
+
+                    label:before, label:after
+                        top: 44px
+                        left: 13px
+                        border-width: 11px
+                        margin: -11px
+                        border-left-color: white
+
+                    label:after
+                        left: 11px
+                        border-left-color: red
+
+                ::-webkit-input-placeholder
+                    color: white
+                :-moz-placeholder
+                    color: white
+                ::-moz-placeholder
+                    color: white
+                :-ms-input-placeholder
+                    color: white
+
+                ::-webkit-scrollbar-track
+                    background: rgba(255, 255, 255, 0.1)
+
+                ::-webkit-scrollbar-thumb
+                    background: rgba(255, 255, 255, 0.5)
+
+                textarea
+                    color: white
+
+        footer
+            .field
+                label
+                    font-size: 10px
+                    height: 19px
+                    line-height: @height
+                    margin-top: -5px
+                    margin-bottom: (-1 * @height)
+
+
+                textarea
+                    font-size: 10px
+                    padding-top: 19px
+
+                &.media
+                    width: 370px
+                    label
+                        image: '/img/icons/media.png' 19px 19px
+                        
+
+                &.progress
+                    width: 278px
+
+                    label
+                        image: '/img/icons/progress.png' 19px 19px
+
+                &.other
+                    width: 470px

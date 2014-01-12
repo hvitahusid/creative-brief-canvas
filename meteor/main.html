@@ -1,0 +1,50 @@
+<head>
+    <title>Creative Brief Canvas</title>
+</head>
+
+<body>
+    {{renderRouter}}
+</body>
+
+<template name="layout">
+    {{yield}}
+</template>
+
+<template name="field">
+    <div class="field {{name}} {{#if icon}}has-icon{{/if}} {{#if focus}}focus{{/if}}">
+        <label for="field_{{name}}">{{label}}</label>
+        {{#if input}}
+            <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
+        {{else}}
+            <textarea name="{{name}}" id="field_{{name}}" placeholder="{{placeholder}}">{{value}}</textarea>
+        {{/if}}
+    </div>
+</template>
+
+<template name="canvas">
+    <div id="canvas">
+        <header>
+            <div class="left">
+                {{#each fieldsets.top}}{{>field}}{{/each}}
+            </div>
+
+            <div class="right">
+                {{#each fieldsets.topSmall}}{{>field}}{{/each}}
+
+                <div class="logo">CREATIVE BRIEF /<br>HVÍTA HÚSIÐ</div>
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="mid">
+                {{#each fieldsets.main}}{{>field}}{{/each}}
+            </div>
+
+            <footer>
+                <div class="left">
+                    {{#each fieldsets.footer}}{{>field}}{{/each}}
+                </div>
+            </footer>
+        </div>
+    </div>
+</template>
