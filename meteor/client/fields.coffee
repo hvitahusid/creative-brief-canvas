@@ -14,51 +14,98 @@
             name: 'background'
             label: 'BAKGRUNNUR VÖRU OG MARKAÐSSTAÐA'
             icon: true
-            placeholder: 'Skilgreining verkefnis. Æðra hlutverk fyrirtækis – Saga fyrirtækis og vöru – Núverandi stragedía – Staða á markaði – Tækifæri á markaði, Staðsetning í huga neytandans, Það sem áður hefur verið reynt og heppnast eða misheppnast.'
+            placeholder: '''
+                Æðra hlutverk fyrirtækis – Saga fyrirtækis, vöru eða þjónustu
+                 – Núverandi strategía – Staða og tækifæri á markaði – Staða í
+                 huga neytandans – Það sem áður hefur verið reynt og heppnast
+                 eða misheppnast.
+            '''
         }
         {
             name: 'competition'
             label: 'SAMKEPPNI'
             icon: true
-            placeholder: 'Helstu Samkeppnisaðilar – Hvað er markhópurinn líklegur til að velja framyfir vöruna og afhverju.'
+            placeholder: '''
+                Helstu samkeppnisaðilar. Hvað er markhópurinn líklegur
+                 til að velja fram yfir vöruna og afhverju?<br><br>
+
+                 Samkeppni þarf ekki endilega að vera frá öðrum vörum eða
+                 fyrirtækjum. Hreyfing er í samkeppni við hreyfingarleysi.
+                 Hollusta er í samkeppni við sætindi.
+            '''
         }
         {
             name: 'goals'
-            label: 'MARKKMIÐ OG TILGANGUR'
+            label: 'MARKMIÐ OG HLUTVERK AUGLÝSINGANNA'
             icon: true
             placeholder: '''
-                Vandamál sem auglýsingaherferðin á að leysa.
-                Hverjar eru ástæður þess að farið var í verkefnið. Er varan í vandræðum á markaði sem þarf að leysa? 
-                Binary briefing upplýsingar. Markmið: vekja forvitni og spennu, veita upplýsingar – Fræða og kenna,  
-                Heilla, kauphvatning? Hvað viljum við að fólk hugsi og finni og þar með geri.
+                Verkefni sem eru skilgreind sem vandamál virkabest.
+                 Þess vegna er verkefni viðskiptavinarins sett fram sem vandamál
+                 sem þarf að leysa.<br><br>
+
+                 Markhópurinn þekkir ekki…? Hvernig getum við breytt viðhorfi
+                 fólks til…?<br><br>
+
+                 Hvað er líklegt til að koma í veg fyrir að markhópurinn breyti
+                 hegðun sinni? Hvernig getum við rutt úr vegi þeim hindrunum?
+                 <br><br>
+
+                 Hvað er verkefnið sem þarf að leysa og hvaða hindranir þarf að
+                 yfirstíga til að ná því?<br><br>
+
+                 Að skilgreina og setja verkefnið fram sem vandamál sem þarf að
+                 leysa setur hugann strax af stað í að finna lausnir.
             '''
         }
         {
             name: 'promise'
-            label: 'HIÐ EINA SANNA LOFORÐ'
+            label: 'LOFORÐIÐ'
             icon: true
-            placeholder: 'Ef það er eitthvað eitt – og aðeins eitt- sem markhópurinn þarf að vita um vöruna – hvað er það (SMP)? Hvaða staðreyndir styðja loforðið?'
+            placeholder: '''
+                Hvað er það mikilvægasta sem markhópurinn þarf að vita um
+                 vöruna, þjónustuna eða fyrirtækið? Hvaða staðreyndir styðja
+                 loforðið.<br><br>
+
+                 Eitt loforð = Ein setning
+            '''
         }
         {
             name: 'focusgroup'
             label: 'MARKHÓPUR'
             icon: true
             placeholder: '''
-                Góð lýsing á markhóp sjá punkta.
-                Eða búðu til persónu sem er fulltrúi markhópsins. Hvernig er þessi manneskja og hvað drífur hana áfram í lífinu.
+                Það er engin ein rétt nálgun í því að skilgreina og kynna sér
+                 markhópinn. Hins vegar er mikilvægt að gögn séu skoðuð og
+                 markhópnum sé lýst á skýran hátt.<br><br>
+
+                 Hafa í huga að allir=enginn og jafnvel þótt markhópurinn sé
+                 mjög stór þá er alltaf hægt að skilgreina hann á einhvern hátt.
+                 <br><br>
+
+                 [Nánar í ítarefni]
             '''
         }
         {
             name: 'insight'
             label: 'INNSÆI'
             icon: true
-            placeholder: 'Hvaða „sannleik” um markhópinn, markaðinn, vöruna eða notkun á vörunni væri hægt að vinna út frá. Hvaða tilfinning, menningarfyrirbæri eða gildi getur gert herferðina hnitmiðaðri – kröftugri.'
+            placeholder: '''
+                Hvaða fullyrðingu um markhópinn, markaðinn, vöruna eða notkun á
+                 vörunni er hægt að vinna út frá? Hvaða tilfinning eða
+                 menningarfyrirbæri getur nýtst í herferðinni?
+            '''
         }
         {
             name: 'strategy'
-            label: 'LYKILSPURNING – STRATEGÍA'
+            label: 'LYKILSPURNING'
             icon: true
-            placeholder: 'Ef það er eitthvað eitt – og aðeins eitt- sem markhópurinn þarf að vita um vöruna – hvað er það (SMP)? Hvaða staðreyndir styðja loforðið?'
+            placeholder: '''
+                Spurning sem inniheldur lykilloforð og innsæi. Ein setning,
+                 í mesta lagi tvær.<br><br>
+
+                 Ef spurningin inniheldur „og/eða“ þá þarf að skipta henni upp í
+                 tvö brief. Annars er hún of löng og/eða óskýr.
+            '''
         }
     ]
     footer: [
@@ -66,17 +113,26 @@
             name: 'media'
             label: 'Miðlar'
             icon: true
-            placeholder: 'Hvers konar upplýsingar standa hér? Og hversu mikið textamagn er búist við hér?'
+            placeholder: '''
+                Hvers konar upplýsingar standa hér? Og hve miklum texta er búist
+                 við?
+            '''
         }
         {
             name: 'progress'
             label: 'Árangursmæling'
             icon: true
-            placeholder: 'Hvers konar upplýsingar standa hér? Og hversu mikið textamagn er búist við hér?'
+            placeholder: '''
+                Hvers konar upplýsingar standa hér? Og hve miklum texta er búist
+                 við?
+            '''
         }
         {
             name: 'other'
             label: 'Annað'
-            placeholder: 'Tónn, Tímamörk, Það sem þarf að hafa með eða annað sem þarf að hafa í huga…'
+            placeholder: '''
+                Tónn, Tímamörk; Það sem þarf að hafa með eða annað sem þarf að
+                 hafa í huga…
+            '''
         }
     ]

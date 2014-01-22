@@ -35,7 +35,8 @@ class @CanvasController extends RouteController
             # Set document title
             if page.product or page.company
                 isTrue = (x) -> x
-                document.title = [page.product, page.company].filter(isTrue).join(' - ')
+                document.title = [page.product,
+                    page.company].filter(isTrue).join(' - ')
 
         return {
             page: page
@@ -43,15 +44,30 @@ class @CanvasController extends RouteController
         }
 
 
+Template.field.rendered = ->
+    if this.data.value.length
+        $(this.find('.placeholder')).hide()
+    else
+        $(this.find('.placeholder')).show()
+
+
 Template.field.helpers
     'focus': -> this.name is Session.get('focusOn')
 
+
 Template.field.events
     'keyup input, keyup textarea': (event) ->
+        $target = $(event.currentTarget)
         if Session.get('page')
-            controller.updateField(this.name, $(event.currentTarget).val())
+            controller.updateField(this.name, $target.val())
         else
             controller.savePage()
+
+        $placeholder = $target.parents('.field').find('.placeholder')
+        if $target.val().length
+            $placeholder.hide()
+        else
+            $placeholder.show()
 
     'focus input, focus textarea': (event) ->
         Session.set('focusOn', this.name)

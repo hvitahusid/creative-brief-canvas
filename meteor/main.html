@@ -16,7 +16,10 @@
         {{#if input}}
             <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
         {{else}}
-            <textarea name="{{name}}" id="field_{{name}}" placeholder="{{placeholder}}">{{value}}</textarea>
+            <div class="textarea">
+                <div class="placeholder">{{{placeholder}}}</div>
+                <textarea name="{{name}}" id="field_{{name}}">{{value}}</textarea>
+            </div>
         {{/if}}
     </div>
 </template>
