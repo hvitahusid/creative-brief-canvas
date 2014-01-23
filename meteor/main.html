@@ -12,7 +12,7 @@
 
 <template name="field">
     <div class="field {{name}} {{#if icon}}has-icon{{/if}} {{#if focus}}focus{{/if}}">
-        <label for="field_{{name}}">{{label}}</label>
+        <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>
         {{#if input}}
             <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
         {{else}}

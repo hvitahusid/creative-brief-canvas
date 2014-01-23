@@ -24,7 +24,7 @@ textarea
     font-size: inherit
 
 body
-    background: white
+    background: lightGrey
     color: black
     font-family: Helvetica, Arial, sans-serif
 
@@ -81,7 +81,6 @@ body
                 width: 240px
                 height: 42px
                 padding: 0 7px
-                box-shadow: inset 0 0 0 1px lightGrey
 
                 label
                     color: mediumGrey
@@ -94,9 +93,6 @@ body
 
                 &.company
                     width: 293px
-
-                &.focus
-                    box-shadow: inset 0 0 0 1px mediumGrey
 
         .right
             position: relative
@@ -177,16 +173,6 @@ body
                 background-repeat: no-repeat
                 margin-bottom: (-1 * @height)
 
-                b
-                    display: block
-                    float: left
-                    margin-left: -26px
-                    width: 26px
-                    height: inherit
-                    line-height: inherit
-                    font-weight: normal
-                    text-align: center
-
             .textarea
                 position: relative
                 width: 100%
@@ -200,14 +186,14 @@ body
                     font-size: 12px
                     width: 100%
                     height: 100%
-                    padding-top:26px
+                    padding-top:21px
 
             &.has-icon
                 label, input, textarea, .placeholder
-                    padding-left: 16px
+                    padding-left: 26px
 
             &.focus
-                box-shadow: inset 0 0 0 1px mediumGrey
+                box-shadow: inset 0 0 0 1px red
 
         .mid
             position: relative
@@ -222,18 +208,16 @@ body
                     margin: -10px
 
             .field.background
-                pink = #f6ded5
                 z-index: 100
                 absolute: left 0 top 0
                 width: 744px
                 height: 170px
-                background: pink
 
                 label
-                    color: #b24d40
+                    image: '/img/icons/background.png'
 
                 &:before, &:after, label:before
-                    border-left-color: pink
+                    border-left-color: white
                     top: 50%
                     right: -10px
 
@@ -241,27 +225,25 @@ body
                     right: -9px
 
                 &:after
-                    border-left-color: white
+                    border-left-color: lightGrey
                     right: -20px
 
                 &.focus
                     &:before
-                        border-left-color: mediumGrey
+                        border-left-color: red
 
 
             .field.competition
-                orange = #fdedd7
                 z-index: 90
                 absolute: right 0 top 0
                 width: 384px
                 height: 320px
-                background: orange
 
                 label
-                    color: #a16e0d
+                    image: '/img/icons/competition.png'
 
                 &:before, &:after, label:before
-                    border-top-color: orange
+                    border-top-color: white
                     right: 70px
                     bottom: -10px
 
@@ -269,31 +251,29 @@ body
                     bottom: -9px
 
                 &:after
-                    border-top-color: white
+                    border-top-color: lightGrey
                     bottom: -20px
 
                 &.focus
                     &:before
-                        border-top-color: mediumGrey
+                        border-top-color: red
 
                     label:after
                         top: 85px
                         left: 11px
-                        border-left-color: mediumGrey
+                        border-left-color: red
 
             .field.goals
-                green = #d4ded3
                 z-index: 80
                 absolute: right 0 bottom 0
                 width: 384px
                 height: 343px
-                background: green
 
                 label
-                    color: #558263
+                    image: '/img/icons/goals.png'
 
                 &:before, &:after, label:before
-                    border-right-color: green
+                    border-right-color: white
                     bottom: 120px
                     left: -10px
 
@@ -301,31 +281,29 @@ body
                     left -9px
 
                 &:after
-                    border-right-color: white
+                    border-right-color: lightGrey
                     left: -20px
 
                 &.focus
                     &:before
-                        border-right-color: mediumGrey
+                        border-right-color: red
 
                     label:after
                         right: 70px
                         top: 11px
-                        border-top-color: mediumGrey
+                        border-top-color: red
 
             .field.promise
-                brown = #e5decf
                 z-index: 70
                 absolute: right 394px bottom 0
                 width: 266px
                 height: 241px
-                background: brown
 
                 label
-                    color: #80682a
+                    image: '/img/icons/promise.png'
 
                 &:before, &:after, label:before
-                    border-right-color: brown
+                    border-right-color: white
                     bottom: 120px
                     left: -10px
 
@@ -333,31 +311,29 @@ body
                     left: -9px
 
                 &:after
-                    border-right-color: white
+                    border-right-color: lightGrey
                     left: -20px
 
                 &.focus
                     &:before
-                        border-right-color: mediumGrey
+                        border-right-color: red
 
                     label:after
                         bottom: 120px
                         right: 11px
-                        border-right-color: mediumGrey
+                        border-right-color: red
 
             .field.focusgroup
-                blue = #d6e3e9
                 z-index: 60
                 absolute: left 0 bottom 0
                 width: 468px
                 height: 302px
-                background: blue
 
                 label
-                    color: #00788d
+                    image: '/img/icons/focusgroup.png'
 
                 &:before, &:after, label:before
-                    border-bottom-color: blue
+                    border-bottom-color: white
                     right: 74px
                     top: -10px
 
@@ -365,31 +341,29 @@ body
                     top: -9px
 
                 &:after
-                    border-bottom-color: white
+                    border-bottom-color: lightGrey
                     top: -20px
 
                 &.focus
                     &:before
-                        border-bottom-color: mediumGrey
+                        border-bottom-color: red
 
                     label:after
                         bottom: 120px
                         right: 11px
-                        border-right-color: mediumGrey
+                        border-right-color: red
 
             .field.insight
-                green = #e1eeca
                 z-index: 50
                 absolute: left 0 bottom 312px
                 width: 468px
                 height: 181px
-                background: green
 
                 label
-                    color: #577630
+                    image: '/img/icons/insight.png'
 
                 &:before, &:after, label:before
-                    border-left-color: green
+                    border-left-color: white
                     top: 44px
                     right: -10px
 
@@ -397,43 +371,57 @@ body
                     right: -9px
 
                 &:after
-                    border-left-color: white
+                    border-left-color: lightGrey
                     right: -20px
 
                 &.focus
                     &:before
-                        border-left-color: mediumGrey
+                        border-left-color: red
 
                     label:after
                         right: 74px
                         bottom: 11px
-                        border-bottom-color: mediumGrey
+                        border-bottom-color: red
 
             .field.strategy
-                yellow = #efe1b7
                 z-index: 40
                 absolute: right 394px bottom 251px
                 width: 266px
                 height: 242px
-                background: yellow
+                background: red
 
                 label
-                    color: #927c17
+                    image: '/img/icons/strategy.png'
+                    color: white
 
                 &.focus
+                    box-shadow: inset 0 0 0 1px red, inset 0 0 0 2px white
+
                     label:before, label:after
                         top: 44px
-                        left: 12px
-                        border-left-color: yellow
+                        left: 13px
+                        border-width: 11px
+                        margin: -11px
+                        border-left-color: white
 
                     label:after
                         left: 11px
-                        border-left-color: mediumGrey
+                        border-left-color: red
+
+                .placeholder
+                    color: white
+
+                ::-webkit-scrollbar-track
+                    background: rgba(255, 255, 255, 0.1)
+
+                ::-webkit-scrollbar-thumb
+                    background: rgba(255, 255, 255, 0.5)
+
+                textarea
+                    color: white
 
         footer
             .field
-                box-shadow: inset 0 0 0 1px lightGrey
-
                 label
                     font-size: 10px
                     height: 19px
@@ -441,16 +429,22 @@ body
                     margin-top: -5px
                     margin-bottom: (-1 * @height)
 
+
                 textarea
                     font-size: 10px
                     padding-top: 19px
 
                 &.media
                     width: 370px
+                    label
+                        image: '/img/icons/media.png' 19px 19px
+
 
                 &.progress
                     width: 278px
 
+                    label
+                        image: '/img/icons/progress.png' 19px 19px
 
                 &.other
                     width: 470px
@@ -467,9 +461,3 @@ body
 
     .placeholder
         display: none
-
-    .field.focus
-        box-shadow: 0 !imporant
-
-        &:before, label:after
-            border: 0 !imporant

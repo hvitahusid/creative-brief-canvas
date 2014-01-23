@@ -12,6 +12,7 @@
     main: [
         {
             name: 'background'
+            n: 1
             label: 'BAKGRUNNUR VÖRU OG MARKAÐSSTAÐA'
             icon: true
             placeholder: '''
@@ -23,6 +24,7 @@
         }
         {
             name: 'competition'
+            n: 2
             label: 'SAMKEPPNI'
             icon: true
             placeholder: '''
@@ -36,29 +38,17 @@
         }
         {
             name: 'goals'
+            n: 3
             label: 'MARKMIÐ OG HLUTVERK AUGLÝSINGANNA'
             icon: true
             placeholder: '''
-                Verkefni sem eru skilgreind sem vandamál virkabest.
-                 Þess vegna er verkefni viðskiptavinarins sett fram sem vandamál
-                 sem þarf að leysa.<br><br>
-
-                 Markhópurinn þekkir ekki…? Hvernig getum við breytt viðhorfi
-                 fólks til…?<br><br>
-
-                 Hvað er líklegt til að koma í veg fyrir að markhópurinn breyti
-                 hegðun sinni? Hvernig getum við rutt úr vegi þeim hindrunum?
-                 <br><br>
-
-                 Hvað er verkefnið sem þarf að leysa og hvaða hindranir þarf að
-                 yfirstíga til að ná því?<br><br>
-
-                 Að skilgreina og setja verkefnið fram sem vandamál sem þarf að
-                 leysa setur hugann strax af stað í að finna lausnir.
+                Hvað er verkefnið sem þarf að leysa og hvaða hindranir
+                 þarf að yfirstíga til að ná því?
             '''
         }
         {
             name: 'promise'
+            n: 4
             label: 'LOFORÐIÐ'
             icon: true
             placeholder: '''
@@ -71,6 +61,7 @@
         }
         {
             name: 'focusgroup'
+            n: 5
             label: 'MARKHÓPUR'
             icon: true
             placeholder: '''
@@ -87,6 +78,7 @@
         }
         {
             name: 'insight'
+            n: 6
             label: 'INNSÆI'
             icon: true
             placeholder: '''
@@ -97,6 +89,7 @@
         }
         {
             name: 'strategy'
+            n: 7
             label: 'LYKILSPURNING'
             icon: true
             placeholder: '''
@@ -112,27 +105,23 @@
         {
             name: 'media'
             label: 'Miðlar'
-            icon: true
             placeholder: '''
-                Hvers konar upplýsingar standa hér? Og hve miklum texta er búist
-                 við?
+                Hér þarf að kalla til samskiptavið og fá þeirra innsæi.
             '''
         }
         {
             name: 'progress'
             label: 'Árangursmæling'
-            icon: true
             placeholder: '''
-                Hvers konar upplýsingar standa hér? Og hve miklum texta er búist
-                 við?
+                Kaup, skráningar, eftirtekt. Mismunandi eftir verkefnum.
             '''
         }
         {
             name: 'other'
             label: 'Annað'
             placeholder: '''
-                Tónn, Tímamörk; Það sem þarf að hafa með eða annað sem þarf að
-                 hafa í huga…
+                Budget. Tónn. Annað sem þarf að hafa í huga en kemur ekki fram
+                 annars staðar í briefi.
             '''
         }
     ]
