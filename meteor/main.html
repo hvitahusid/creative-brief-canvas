@@ -17,10 +17,12 @@
             <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
         {{else}}
             <div class="textarea">
-                <div class="placeholder">{{{placeholder}}}</div>
+                {{#constant}}<div class="placeholder">{{{placeholder}}}</div>{{/constant}}
                 <textarea name="{{name}}" id="field_{{name}}">{{value}}</textarea>
             </div>
         {{/if}}
+        <div class="comments"></div>
+        <div class="about"></div>
     </div>
 </template>
 

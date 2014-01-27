@@ -24,7 +24,7 @@ class @CanvasController extends RouteController
 
     data: ->
         window.controller = this
-        page = Pages.findOne(this.params._id)
+        page = Pages.findOne(@params._id)
         Session.set('page', page)
 
         if page
@@ -45,29 +45,41 @@ class @CanvasController extends RouteController
 
 
 Template.field.rendered = ->
-    if this.data.value.length
-        $(this.find('.placeholder')).hide()
-    else
-        $(this.find('.placeholder')).show()
+    if $(@find('textarea')).length
+        if $(@find('textarea')).val().length
+            $(@find('.placeholder')).hide()
+        else
+            $(@find('.placeholder')).show()
 
 
 Template.field.helpers
-    'focus': -> this.name is Session.get('focusOn')
+    'focus': -> @name is Session.get('focusOn')
 
 
 Template.field.events
     'keyup input, keyup textarea': (event) ->
         $target = $(event.currentTarget)
         if Session.get('page')
-            controller.updateField(this.name, $target.val())
+            controller.updateField(@name, $target.val())
         else
             controller.savePage()
 
+        # Hide the placeholder if field has no value; else show it:
         $placeholder = $target.parents('.field').find('.placeholder')
         if $target.val().length
             $placeholder.hide()
         else
             $placeholder.show()
 
+    # Hide the the placeholder on keydown. (Will be shown again on keyup
+    # if the input is empty):
+    'keydown input, keydown textarea': (event) ->
+        $target = $(event.currentTarget)
+        $placeholder = $target.parents('.field').find('.placeholder')
+        # Unless key pressed is a command key (backspace, shift, ctr, etc.),
+        # hide placeholder:
+        unless event.keyCode in [8, 9, 13, 16, 17, 18, 91, 93]
+            $placeholder.hide()
+
     'focus input, focus textarea': (event) ->
-        Session.set('focusOn', this.name)
+        Session.set('focusOn', @name)
