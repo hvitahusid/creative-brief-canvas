@@ -6,6 +6,10 @@ Router.configure
 
 
 Router.map ->
+    @route 'list',
+        path: '/list/'
+        controller: 'ListController'
+
     @route 'newCanvas',
         path: '/'
         controller: 'CanvasController'

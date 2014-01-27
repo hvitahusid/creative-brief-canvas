@@ -10,6 +10,28 @@
     {{yield}}
 </template>
 
+<template name="list">
+    <div id="list">
+        <table>
+            <thead>
+                <tr>
+                    {{#each fields}}<th>{{label}}</th>{{/each}}
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each pages}}
+                    <tr>
+                    {{#each fields}}
+                        <td><a href="/{{../id}}" title="{{label}}">{{value}}&nbsp;</a></td>
+                    {{/each}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
 <template name="field">
     <div class="field {{name}} {{#if icon}}has-icon{{/if}} {{#if focus}}focus{{/if}}">
         <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>

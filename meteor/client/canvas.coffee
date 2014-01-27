@@ -13,6 +13,11 @@ class @CanvasController extends RouteController
         $('input, textarea').each ->
             inputs[$(this).attr('name')] = $(this).val()
 
+        unless inputs.created
+            now = new Date()
+            inputs._created = now
+            inputs.created = moment(now).format('DD/MM/YYYY')
+
         pageId = Pages.insert(inputs)
 
         history.replaceState(null, null, '/' + pageId)
@@ -78,7 +83,7 @@ Template.field.events
         $placeholder = $target.parents('.field').find('.placeholder')
         # Unless key pressed is a command key (backspace, shift, ctr, etc.),
         # hide placeholder:
-        unless event.keyCode in [8, 9, 13, 16, 17, 18, 91, 93]
+        unless event.keyCode in [8, 9, 16, 17, 18, 91, 93]
             $placeholder.hide()
 
     'focus input, focus textarea': (event) ->
