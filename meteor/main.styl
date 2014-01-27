@@ -215,10 +215,61 @@ body
                 box-shadow: inset 0 0 0 1px mediumGrey
 
             .comments, .about
+                cursor: pointer
                 position: absolute
                 top: 6px
                 right: 6px
                 display: none
+
+                .popup
+                    cursor: default
+                    display: none
+                    position: absolute
+                    opacity: 0.9
+                    z-index: 1000
+                    width: 420px
+                    height: 420px
+                    background: white
+                    border: 1px solid #a5a5a3
+                    top: -7px
+                    left: 39px
+
+                    &:before
+                        position: absolute
+                        display: block
+                        background: white
+                        width: 46px
+                        top: -1px
+                        height: 30px
+                        border: 1px solid #a5a5a3
+                        border-right-color: white
+                        left: -46px
+                        font-size: 12px
+                        line-height: 28px
+                        padding-left: 30px
+
+                    &.left
+                        left: auto
+                        right: 39px
+
+                        &:before
+                            left: auto
+                            right: -46px
+                            border-right-color: #a5a5a3
+                            box-shadow: -1px 0 0 -1px white;
+                            border-left: 0
+
+                &.active
+                    .popup
+                        display: block
+
+                    .close
+                        z-index: 1100
+                        display:block
+                        content:''
+                        position:absolute
+                        top:0
+                        left:0
 
             .comments
                 right: 26px
@@ -226,10 +277,30 @@ body
                 height: 15px
                 image: '/img/icons/comments.png' @width @height
 
+                .close
+                    display: none
+                    width: 19px
+                    height: 15px
+                    image: '/img/icons/comments-hover.png' @width @height
+
+                .popup:before
+                    content: 'ATHUGASEMDIR'
+
             .about
+                cursor: help
                 width: 16px
                 height: 16px
                 image: '/img/icons/about.png' @width @height
+
+                .close
+                    cursor: pointer
+                    display: none
+                    width: 16px
+                    height: 16px
+                    image: '/img/icons/about-hover.png' @width @height
+
+                .popup:before
+                    content: 'ÍTAREFNI'
 
         .mid
             position: relative
@@ -248,10 +319,13 @@ body
                     position: absolute
                     border: 10px solid transparent
                     margin: -10px
+                    z-index: 100
+
+                label:after
+                    z-index: 90
 
             .field.background
                 pink = #f6ded5
-                z-index: 100
                 absolute: left 0 top 0
                 width: 744px
                 height: 170px
@@ -281,7 +355,6 @@ body
 
             .field.competition
                 orange = #fdedd7
-                z-index: 90
                 absolute: right 0 top 0
                 width: 384px
                 height: 320px
@@ -314,7 +387,6 @@ body
 
             .field.goals
                 green = #d4ded3
-                z-index: 80
                 absolute: right 0 bottom 0
                 width: 384px
                 height: 343px
@@ -348,7 +420,6 @@ body
 
             .field.promise
                 brown = #e5decf
-                z-index: 70
                 absolute: right 394px bottom 0
                 width: 266px
                 height: 241px
@@ -381,7 +452,6 @@ body
 
             .field.focusgroup
                 blue = #d6e3e9
-                z-index: 60
                 absolute: left 0 bottom 0
                 width: 468px
                 height: 302px
@@ -415,7 +485,6 @@ body
 
             .field.insight
                 green = #e1eeca
-                z-index: 50
                 absolute: left 0 bottom 312px
                 width: 468px
                 height: 181px
@@ -448,7 +517,6 @@ body
 
             .field.strategy
                 yellow = #efe1b7
-                z-index: 40
                 absolute: right 394px bottom 251px
                 width: 266px
                 height: 242px
@@ -459,12 +527,8 @@ body
                     color: #927c17
 
                 &.focus
-                    label:before, label:after
-                        top: 44px
-                        left: 12px
-                        border-left-color: yellow
-
                     label:after
+                        top: 44px
                         left: 11px
                         border-left-color: mediumGrey
 

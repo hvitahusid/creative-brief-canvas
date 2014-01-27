@@ -64,10 +64,11 @@ Template.field.helpers
 Template.field.events
     'keyup input, keyup textarea': (event) ->
         $target = $(event.currentTarget)
-        if Session.get('page')
-            controller.updateField(@name, $target.val())
-        else
-            controller.savePage()
+        unless event.keyCode in [9, 16, 17, 18, 91, 93]
+            if Session.get('page')
+                controller.updateField(@name, $target.val())
+            else
+                controller.savePage()
 
         # Hide the placeholder if field has no value; else show it:
         $placeholder = $target.parents('.field').find('.placeholder')
@@ -88,3 +89,11 @@ Template.field.events
 
     'focus input, focus textarea': (event) ->
         Session.set('focusOn', @name)
+
+    'click .comments, click .about': (event) ->
+        if event.target is event.currentTarget
+            $('.comments, .about').removeClass('active')
+            $(event.target).addClass('active')
+
+    'click .comments .close, click .about .close': (event) ->
+        $(event.currentTarget).parent().removeClass('active')

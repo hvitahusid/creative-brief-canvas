@@ -35,6 +35,7 @@
                  fyrirtækjum. Hreyfing er í samkeppni við hreyfingarleysi.
                  Hollusta er í samkeppni við sætindi.
             '''
+            popupPosition: 'left'
         }
         {
             name: 'goals'
@@ -45,6 +46,7 @@
                 Hvað er verkefnið sem þarf að leysa og hvaða hindranir
                  þarf að yfirstíga til að ná því?
             '''
+            popupPosition: 'left'
         }
         {
             name: 'promise'

@@ -34,7 +34,11 @@
 
 <template name="field">
     <div class="field {{name}} {{#if icon}}has-icon{{/if}} {{#if focus}}focus{{/if}}">
+        {{#constant}}
         <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>
+        {{/constant}}
+
+        {{#isolate}}
         {{#if input}}
             <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
         {{else}}
@@ -43,8 +47,29 @@
                 <textarea name="{{name}}" id="field_{{name}}">{{value}}</textarea>
             </div>
         {{/if}}
-        <div class="comments"></div>
-        <div class="about"></div>
+        {{/isolate}}
+
+        {{#isolate}}
+        {{#unless input}}
+            <div class="comments">
+                <div class="close"></div>
+                <div class="popup {{popupPosition}}">
+
+                </div>
+            </div>
+        {{/unless}}
+        {{/isolate}}
+
+        {{#constant}}
+        {{#unless input}}
+        <div class="about">
+            <div class="close"></div>
+            <div class="popup {{popupPosition}}">
+
+            </div>
+        </div>
+        {{/unless}}
+        {{/constant}}
     </div>
 </template>
 
