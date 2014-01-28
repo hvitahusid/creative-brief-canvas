@@ -220,12 +220,13 @@ body
                 top: 6px
                 right: 6px
                 display: none
+                -webkit-touch-callout: none
+                user-select: none
 
                 .popup
                     cursor: default
                     display: none
                     position: absolute
-                    opacity: 0.9
                     z-index: 1000
                     width: 420px
                     height: 420px
@@ -235,6 +236,7 @@ body
                     left: 39px
 
                     &:before
+                        content: ''
                         position: absolute
                         display: block
                         background: white
@@ -244,20 +246,38 @@ body
                         border: 1px solid #a5a5a3
                         border-right-color: white
                         left: -46px
+
+                    h1
+                        position: relative
+                        z-index: 10
                         font-size: 12px
                         line-height: 28px
-                        padding-left: 30px
+                        margin-left: -16px
 
                     &.left
                         left: auto
-                        right: 39px
+                        right: 366px
 
                         &:before
+                            width: 366px + 6px
                             left: auto
-                            right: -46px
+                            right: -(@width)
                             border-right-color: #a5a5a3
-                            box-shadow: -1px 0 0 -1px white;
+                            box-shadow: -1px 0 0 -1px white
                             border-left: 0
+
+                        h1
+                            margin-left: 14px
+
+                        label
+                            position: absolute
+                            top: 10px
+                            left: 437px
+                            white-space: pre
+
+                            &:before, &:after
+                                content: none
+                                display: none
 
                 &.active
                     .popup
@@ -283,9 +303,6 @@ body
                     height: 15px
                     image: '/img/icons/comments-hover.png' @width @height
 
-                .popup:before
-                    content: 'ATHUGASEMDIR'
-
             .about
                 cursor: help
                 width: 16px
@@ -299,8 +316,11 @@ body
                     height: 16px
                     image: '/img/icons/about-hover.png' @width @height
 
-                .popup:before
-                    content: 'ÍTAREFNI'
+                .popup
+                    &.left
+                        label
+                            left: 417px
+
 
         .mid
             position: relative

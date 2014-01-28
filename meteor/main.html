@@ -54,7 +54,10 @@
             <div class="comments">
                 <div class="close"></div>
                 <div class="popup {{popupPosition}}">
-
+                    <h1>ATHUGASEMDIR</h1>
+                    {{#if popupPosition is left}}
+                    <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>
+                    {{/if}}
                 </div>
             </div>
         {{/unless}}
@@ -65,7 +68,10 @@
         <div class="about">
             <div class="close"></div>
             <div class="popup {{popupPosition}}">
-
+                <h1>ÍTAREFNI</h1>
+                {{#if popupPosition is left}}
+                <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>
+                {{/if}}
             </div>
         </div>
         {{/unless}}
