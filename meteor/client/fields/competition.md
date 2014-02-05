@@ -1,0 +1,2 @@
+This section is a list of the product's competitors, in order of relevance, and high-end. It's a useful reminder during the stragedy, concept and execution stages to orginate, not imitate. As a certain Levi's ad written by John Hegarty states: "When the world zigs,
+Zag"

@@ -229,7 +229,7 @@ body
                     position: absolute
                     z-index: 1000
                     width: 420px
-                    height: 420px
+                    max-height: 420px
                     background: white
                     border: 1px solid #a5a5a3
                     top: -7px
@@ -278,6 +278,60 @@ body
                             &:before, &:after
                                 content: none
                                 display: none
+
+                    .content-wrapper
+                        position: relative
+                        overflow: hidden
+                        margin: 0px 14px 22px 14px
+
+                        .content
+                            font-size: 12px
+                            //font-weight: 200
+                            max-height: 420px - 28px - 22px - 8px
+                            margin: 4px 0
+                            overflow: auto
+                            overflow-x: hidden
+                            padding: 0 22px 0 0
+
+                            p
+                                margin: 12px 0
+
+                            b, strong
+                                font-weight: bold
+
+                            em, i
+                                font-style: italic
+
+                            ul, ol
+                                margin: 12px 0
+                                padding: 0 0 0 22px
+
+                                li
+                                    margin: 6px 0
+
+                                    ul, ol
+                                        margin: 6px 0
+
+                            ul
+                                list-style: disc
+
+                            ol
+                                list-style: decimal
+
+                        &:before, &:after
+                            content: ''
+                            display: block
+                            position: absolute
+                            left: 0
+                            width: 100%
+                            height: 0
+                            box-shadow: 0 0 4px 4px white
+
+                        &:before
+                            top:0
+
+                        &:after
+                            bottom: 0
 
                 &.active
                     .popup

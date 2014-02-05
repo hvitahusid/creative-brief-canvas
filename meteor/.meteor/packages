@@ -12,3 +12,4 @@ coffeescript
 stylus
 underscore
 moment
+marked

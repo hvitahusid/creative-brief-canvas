@@ -32,12 +32,14 @@ class @CanvasController extends RouteController
         page = Pages.findOne(@params._id)
         Session.set('page', page)
 
-        if page
-            for fieldset, fields of fieldsets
-                for field in fields
+        for fieldset, fields of fieldsets
+            for field in fields
+                if page
                     field.value = page[field.name] or ''
+                field.about = Markdown[field.name] or ''
 
-            # Set document title
+        # Set document title
+        if page
             if page.product or page.company
                 isTrue = (x) -> x
                 document.title = [page.product,
