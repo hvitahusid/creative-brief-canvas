@@ -1,3 +1,15 @@
+@addComment = (field, comment, _user_name) ->
+    Comments.insert
+        page: Session.get('page')._id
+        field: field
+        content: comment
+        _user_name: _user_name
+
+
+@getComments = (field) ->
+    Comments.find({page: Session.get('page')._id, field: field})
+
+
 class @CanvasController extends RouteController
     template: 'canvas'
 
@@ -24,19 +36,15 @@ class @CanvasController extends RouteController
 
         Session.set('page', Pages.findOne(pageId))
 
-    waitOn: ->
-        subscriptions.pages
+    waitOn: -> [
+        subscriptions.pages,
+        subscriptions.comments
+    ]
 
     data: ->
         window.controller = this
-        page = Pages.findOne(@params._id)
+        page = Pages.findOne(@params._id, {reactive: false})
         Session.set('page', page)
-
-        for fieldset, fields of fieldsets
-            for field in fields
-                if page
-                    field.value = page[field.name] or ''
-                field.about = Markdown[field.name] or ''
 
         # Set document title
         if page
@@ -60,11 +68,19 @@ Template.field.rendered = ->
 
 
 Template.field.helpers
-    'focus': -> @name is Session.get('focusOn')
+    focus: ->
+        @name is Session.get('focusOn')
+
+    value: ->
+        page = Pages.findOne(Session.get('page')._id)
+        return page[@name] if page
+
+    comments: ->
+        getComments(@name)
 
 
 Template.field.events
-    'keyup input, keyup textarea': (event) ->
+    'keyup .field-content': (event) ->
         $target = $(event.currentTarget)
         unless event.keyCode in [9, 16, 17, 18, 91, 93]
             if Session.get('page')
@@ -81,7 +97,7 @@ Template.field.events
 
     # Hide the the placeholder on keydown. (Will be shown again on keyup
     # if the input is empty):
-    'keydown input, keydown textarea': (event) ->
+    'keydown .field-content': (event) ->
         $target = $(event.currentTarget)
         $placeholder = $target.parents('.field').find('.placeholder')
         # Unless key pressed is a command key (backspace, shift, ctr, etc.),
@@ -89,7 +105,7 @@ Template.field.events
         unless event.keyCode in [8, 9, 16, 17, 18, 91, 93]
             $placeholder.hide()
 
-    'focus input, focus textarea': (event) ->
+    'focus .field-content': (event) ->
         Session.set('focusOn', @name)
 
     'click .comments, click .about': (event) ->

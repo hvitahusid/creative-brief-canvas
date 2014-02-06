@@ -40,11 +40,11 @@
 
         {{#isolate}}
         {{#if input}}
-            <input type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
+            <input class="field-content" type="text" name="{{name}}" id="field_{{name}}" value="{{value}}" placeholder="{{placeholder}}">
         {{else}}
             <div class="textarea">
                 {{#constant}}<div class="placeholder">{{{placeholder}}}</div>{{/constant}}
-                <textarea name="{{name}}" id="field_{{name}}">{{value}}</textarea>
+                <textarea class="field-content" name="{{name}}" id="field_{{name}}">{{value}}</textarea>
             </div>
         {{/if}}
         {{/isolate}}
@@ -58,6 +58,26 @@
                     {{#if popupPosition is left}}
                     <label for="field_{{name}}"><b>{{#if n}}{{n}}.{{/if}}</b>{{label}}</label>
                     {{/if}}
+                    <div class="content-wrapper">
+                        <div class="content">
+                            {{#each comments}}
+                            <div class="comment">
+                                {{{content}}}
+                                <div class="meta">
+                                    <div class="user">{{{_user_name}}}</div>
+                                    <div class="datetime">{{{timestamp}}}</div>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    {{#constant}}
+                    <div class="write-comment">
+                        <input type="text" name="name" placeholder="Nafn">
+                        <textarea name="comment" placeholder="Athugasemd"></textarea>
+                    </div>
+                    {{/constant}}
                 </div>
             </div>
         {{/unless}}

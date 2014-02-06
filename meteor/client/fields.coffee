@@ -127,3 +127,8 @@
             '''
         }
     ]
+
+
+for fieldset, fields of fieldsets
+    for field in fields
+        field.about = Markdown[field.name] or ''
