@@ -38,7 +38,8 @@ class @CanvasController extends RouteController
 
     waitOn: -> [
         subscriptions.pages,
-        subscriptions.comments
+        subscriptions.comments,
+        {ready: -> Session.get('page')}
     ]
 
     data: ->
