@@ -1,23 +1,34 @@
 @addComment = (field, comment, _user_name) ->
     Comments.insert
-        page: Session.get('page')._id
+        page: controller.page._id
         field: field
         content: comment
         _user_name: _user_name
 
 
 @getComments = (field) ->
-    Comments.find({page: Session.get('page')._id, field: field})
+    if controller.page
+        Comments.find({page: controller.page._id, field: field})
+
+
+@setTitle = (p) ->
+    if p.product or p.company
+        isTrue = (x) -> x
+        document.title = [p.product, p.company].filter(isTrue).join(' - ')
+    else
+        document.title = 'Creative Brief'
 
 
 class @CanvasController extends RouteController
     template: 'canvas'
 
+    page: null
+
     updateField: _.debounce (field, value) ->
         if field? and value?
             f = {}
             f[field] = value
-            Pages.update(Session.get('page')._id, {$set: f})
+            Pages.update(@page._id, {$set: f})
     , 200
 
     savePage: ->
@@ -34,28 +45,23 @@ class @CanvasController extends RouteController
 
         history.replaceState(null, null, '/' + pageId)
 
-        Session.set('page', Pages.findOne(pageId))
+        @page = Pages.findOne(pageId)
+
+    before: ->
+        window.controller = this
+
+        if @params._id
+            @page = Pages.findOne(@params._id)
+            @stop() unless @page
+            setTitle(@page)
 
     waitOn: -> [
         subscriptions.pages,
-        subscriptions.comments,
-        {ready: -> Session.get('page')}
+        subscriptions.comments
     ]
 
     data: ->
-        window.controller = this
-        page = Pages.findOne(@params._id, {reactive: false})
-        Session.set('page', page)
-
-        # Set document title
-        if page
-            if page.product or page.company
-                isTrue = (x) -> x
-                document.title = [page.product,
-                    page.company].filter(isTrue).join(' - ')
-
         return {
-            page: page
             fieldsets: fieldsets
         }
 
@@ -73,18 +79,19 @@ Template.field.helpers
         @name is Session.get('focusOn')
 
     value: ->
-        page = Pages.findOne(Session.get('page')._id)
-        return page[@name] if page
+        if controller.page
+            value = Pages.findOne(controller.page._id)[@name]
+            return value
 
     comments: ->
-        getComments(@name)
+        return getComments(@name)
 
 
 Template.field.events
     'keyup .field-content': (event) ->
         $target = $(event.currentTarget)
         unless event.keyCode in [9, 16, 17, 18, 91, 93]
-            if Session.get('page')
+            if controller.page
                 controller.updateField(@name, $target.val())
             else
                 controller.savePage()
@@ -116,3 +123,11 @@ Template.field.events
 
     'click .comments .close, click .about .close': (event) ->
         $(event.currentTarget).parent().removeClass('active')
+
+    'click button[name=submit]': (event) ->
+        $writeComment = $(event.currentTarget).parents('.write-comment')
+        _user_name = $writeComment.find('input[name=name]').val()
+        comment = $writeComment.find('textarea[name=comment]').val()
+        if comment and _user_name
+            addComment(@name, comment, _user_name)
+            $writeComment.find('input, textarea').val('')
