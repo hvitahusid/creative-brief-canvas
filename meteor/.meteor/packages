@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
 preserve-inputs
 iron-router
 coffeescript
@@ -13,3 +11,7 @@ stylus
 underscore
 moment
 marked
+accounts-ui
+accounts-base
+accounts-password
+roles

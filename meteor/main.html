@@ -10,7 +10,20 @@
     {{yield}}
 </template>
 
+
+<template name="login">
+    <form id="login-form" action="action">
+        <h1>Innskráning</h1>
+        <input type="text" id="login-username" placeholder="Notandi"><br>
+        <input type="password" id="login-password" placeholder="Lykilorð"><br>
+        <button type="submit" id="login-button">Innskrá</button>
+    </form>
+</template>
+
+
 <template name="list">
+    {{loginButtons align="right"}}
+
     <div id="list">
         <table>
             <thead>
@@ -115,6 +128,8 @@
 
                 <div class="logo">CREATIVE BRIEF /<br>HVÍTA HÚSIÐ</div>
             </div>
+
+            {{loginButtons align="right"}}
         </header>
 
         <div class="main">

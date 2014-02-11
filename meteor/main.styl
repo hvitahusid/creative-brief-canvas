@@ -42,6 +42,15 @@ body
 :-ms-input-placeholder
     color: mediumGrey
 
+#login-buttons
+    position: absolute
+    right: 0px
+    top: 0px
+
+    a
+        text-decoration: none
+        font-size: 12px
+
 #canvas
     padding: 15px 21px
     margin: 0 auto
@@ -74,7 +83,11 @@ body
                 outline:0
 
     header
+        position: relative
         font-size: 0
+
+        #login-buttons
+            right: 13px
 
         .left
             display: inline-block
@@ -640,12 +653,35 @@ body
                 &.other
                     width: 470px
 
+#login-form
+    margin: auto
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    width: 300px
+    height: 157px
+    background: lightGrey
+    padding: 16px
+    border-radius: 3px
+
+    input
+        width: 100%
+        border: 1px solid #a5a5a3
+        padding: 5px
+        margin: 8px 0
+
+    button
+        float: right
+        padding: 5px
+
+
+@page
+    margin: 0
+    size: landscape
 
 @media print
-    @page
-        margin: 0
-        size: landscape
-
     #canvas
         margin: -10px
 
@@ -658,3 +694,7 @@ body
 
         &:before, label:after
             border: 0 !imporant
+
+    .field
+        .comments, .about
+            display: none

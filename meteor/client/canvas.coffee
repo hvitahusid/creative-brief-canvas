@@ -52,7 +52,9 @@ class @CanvasController extends RouteController
 
         if @params._id
             @page = Pages.findOne(@params._id)
-            @stop() unless @page
+            unless @page
+                @stop()
+                return null
             setTitle(@page)
 
     waitOn: -> [
