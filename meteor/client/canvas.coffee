@@ -1,9 +1,15 @@
+Handlebars.registerHelper 'formatDate', (datetime, format) ->
+    moment(datetime).format(format)
+
+Handlebars.registerHelper 'markdown', (text) -> marked(text)
+
 @addComment = (field, comment, _user_name) ->
     Comments.insert
         page: controller.page._id
         field: field
         content: comment
         _user_name: _user_name
+        dateCreated: new Date()
 
 
 @getComments = (field) ->
@@ -69,11 +75,13 @@ class @CanvasController extends RouteController
 
 
 Template.field.rendered = ->
-    if $(@find('textarea')).length
-        if $(@find('textarea')).val().length
+    if $(@find('.field-content')).length
+        if $(@find('.field-content')).val().length
             $(@find('.placeholder')).hide()
         else
             $(@find('.placeholder')).show()
+
+    $(@find('.comments')).find('textarea').autosize()
 
 
 Template.field.helpers
@@ -126,10 +134,13 @@ Template.field.events
     'click .comments .close, click .about .close': (event) ->
         $(event.currentTarget).parent().removeClass('active')
 
-    'click button[name=submit]': (event) ->
-        $writeComment = $(event.currentTarget).parents('.write-comment')
-        _user_name = $writeComment.find('input[name=name]').val()
-        comment = $writeComment.find('textarea[name=comment]').val()
-        if comment and _user_name
-            addComment(@name, comment, _user_name)
-            $writeComment.find('input, textarea').val('')
+    'submit form': (e, t) ->
+        e.preventDefault()
+        _user_name = t.find("input[name=name]")
+        comment = t.find("textarea[name=comment]")
+        console.log _user_name, comment
+        if comment.value.length and _user_name.value.length
+            addComment(@name, comment.value, _user_name.value)
+            $(comment).val('').trigger('autosize.resize')
+            $(_user_name).val('')
+        return false

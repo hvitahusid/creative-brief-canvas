@@ -75,10 +75,10 @@
                         <div class="content">
                             {{#each comments}}
                             <div class="comment">
-                                {{{content}}}
+                                {{{markdown content}}}
                                 <div class="meta">
+                                    <div class="datetime">{{formatDate dateCreated 'HH:mm | MM/DD/YYYY'}}</div>
                                     <div class="user">{{{_user_name}}}</div>
-                                    <div class="datetime">{{{timestamp}}}</div>
                                 </div>
                             </div>
                             {{/each}}
@@ -86,11 +86,11 @@
                     </div>
 
                     {{#constant}}
-                    <div class="write-comment">
-                        <input type="text" name="name" placeholder="Nafn">
+                    <form class="write-comment">
                         <textarea name="comment" placeholder="Athugasemd"></textarea>
-                        <button name="submit" type="button">VISTA</button>
-                    </div>
+                        <input type="text" name="name" placeholder="Nafn" maxlength="22">
+                        <button name="submit" type="submit">VISTA</button>
+                    </form>
                     {{/constant}}
                 </div>
             </div>

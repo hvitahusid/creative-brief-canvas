@@ -1,6 +1,12 @@
 @Pages = new Meteor.Collection('pages')
 @Comments = new Meteor.Collection('comments')
 
+Accounts.config
+    sendVerificationEmail: true
+    forbidClientAccountCreation: true  # No account creation allowed for now...
+    restrictCreationByEmailDomain: true
+    loginExpirationInDays: null
+
 Pages.allow
     insert: -> true
     update: -> true
