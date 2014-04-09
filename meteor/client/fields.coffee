@@ -7,19 +7,17 @@
         {name: 'connection', label: 'Tengill', input: true}
         {name: 'accepted', label: 'Samþykkt', input: true}
         {name: 'team', label: 'Teymi', input: true}
-        {name: 'created', label: 'Fæðing', input: true}
+        {name: 'created', label: 'Afhending', input: true}
     ]
     main: [
         {
             name: 'background'
             n: 1
-            label: 'BAKGRUNNUR VÖRU OG MARKAÐSSTAÐA'
+            label: 'SKILGREINING VERKEFNIS'
             icon: true
             placeholder: '''
-                Æðra hlutverk fyrirtækis – Saga fyrirtækis, vöru eða þjónustu
-                 – Núverandi strategía – Staða og tækifæri á markaði – Staða í
-                 huga neytandans – Það sem áður hefur verið reynt og heppnast
-                 eða misheppnast.
+                 - Lýsing á verkefninu
+                 – Bakgrunnur vörunnar / þjónustunnar
             '''
         }
         {
@@ -28,23 +26,19 @@
             label: 'SAMKEPPNI'
             icon: true
             placeholder: '''
-                Helstu samkeppnisaðilar. Hvað er markhópurinn líklegur
-                 til að velja fram yfir vöruna og afhverju?<br><br>
-
-                 Samkeppni þarf ekki endilega að vera frá öðrum vörum eða
-                 fyrirtækjum. Hreyfing er í samkeppni við hreyfingarleysi.
-                 Hollusta er í samkeppni við sætindi.
+                Staða vörunnar á markaðinum í samanburði við samkeppnisaðila
             '''
             popupPosition: 'left'
         }
         {
             name: 'goals'
             n: 3
-            label: 'MARKMIÐ OG HLUTVERK AUGLÝSINGANNA'
+            label: 'MARKMIÐ'
             icon: true
             placeholder: '''
-                Hvað er verkefnið sem þarf að leysa og hvaða hindranir
-                 þarf að yfirstíga til að ná því?
+                - Hver mun markaðsstaðan verða eftir auglýsingaherferðina?
+                - Hvaða áhrif hafa auglýsingarnar á ímynd fyrirtækisins?
+                - Hvað viljum við að fólk hugsi þegar það sér auglýsingarnar og hvað viljum við að það geri?
             '''
             popupPosition: 'left'
         }
