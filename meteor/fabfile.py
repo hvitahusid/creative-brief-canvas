@@ -1,7 +1,10 @@
 from __future__ import with_statement
+from StringIO import StringIO
 from fabric.api import *
 from fabric.contrib.console import confirm
 from fabric.contrib.files import exists
+import os
+
 
 env.user = 'hvitahusid'
 env.password = 'aVvyTBwqzagB++EBvstqqw'
@@ -13,6 +16,24 @@ env.roledefs = {
 }
 
 code_dir = '~/meteor/creativebrief/'
+
+
+def check_pid(pid):
+    """ Check For the existence of a unix pid. """
+    if not pid:
+        return False
+
+    return exists('/proc/%s' % pid)
+
+
+def get_pid():
+    pid_file = code_dir + 'forever.pid'
+
+    if exists(pid_file):
+        fd = StringIO()
+        get(pid_file, fd)
+        return int(fd.getvalue())
+
 
 def apt_update():
     sudo('apt-get update')
@@ -53,7 +74,9 @@ def deploy():
 
 @roles('meteor')
 def start():
-    if exists(code_dir + 'forever.pid'):
+    pid = get_pid()
+
+    if check_pid(pid):
         print 'Process is already running...'
         return False
 

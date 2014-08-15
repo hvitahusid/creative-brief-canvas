@@ -73,15 +73,26 @@ class @CanvasController extends RouteController
             fieldsets: fieldsets
         }
 
+Template.canvas.rendered = ->
+    console.log '############ canvas rendered ############'
+
+_field_rendered_c = {}
 
 Template.field.rendered = ->
+    if _field_rendered_c[@data.name]
+        _field_rendered_c[@data.name]++
+    else
+        _field_rendered_c[@data.name] = 1
+    c = _field_rendered_c[@data.name]
+    console.log "field rendered: #{@data.name} (#{c})"
+
     if $(@find('.field-content')).length
         if $(@find('.field-content')).val().length
             $(@find('.placeholder')).hide()
         else
             $(@find('.placeholder')).show()
 
-    $(@find('.comments')).find('textarea').autosize()
+    $(@find('.comments')).find('textarea').autosize().trigger('autosize.resize')
 
 
 Template.field.helpers
