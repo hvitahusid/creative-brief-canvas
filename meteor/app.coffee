@@ -4,8 +4,12 @@
 Accounts.config
     sendVerificationEmail: true
     forbidClientAccountCreation: true  # No account creation allowed for now...
-    restrictCreationByEmailDomain: true
     loginExpirationInDays: null
+
+    restrictCreationByEmailDomain: (email) ->
+        domain = email.slice(email.lastIndexOf("@") + 1)
+        allowed = ['hvitahusid.is']
+        return _.contains(allowed, domain)
 
 Pages.allow
     insert: -> true
